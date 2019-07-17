@@ -1,0 +1,18 @@
+#!/usr/bin/zsh
+# Launch dunst using colors from .Xresources set by pywal
+# NOTE: This file is actually located in /usr/local/bin
+
+TEXT=$(xgetres foreground)
+BACK=$(xgetres background)
+BORDER=$(xgetres color10)
+
+dunst \
+  -lb "$BACK" \
+  -nb "$BACK" \
+  -cb "$BACK" \
+  -lf "$TEXT" \
+  -nf "$TEXT" \
+  -cf "$TEXT" \
+  -lfr "$BORDER" \
+  -nfr "$BORDER" \
+  -cfr "$BORDER"
