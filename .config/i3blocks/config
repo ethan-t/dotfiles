@@ -1,0 +1,51 @@
+# i3blocks config file
+
+separator_block_width=30
+markup=none
+
+# Spotify title
+[music name]
+command=sp title
+interval=5
+
+# Spotify artist
+[music artist]
+command=sp artist
+interval=5
+
+# Pomodoro timer
+[pomodoro]
+label=POMO
+# There's often extra whitespace before the time, so remove that
+command=pomo.sh clock | xargs
+interval=1
+
+# ALSA volume
+[volume]
+label=VOL
+command= amixer sget Master -M | awk -F"[][]" '/dB/ { print $2 }'
+interval=1
+signal=10
+
+# Memory usage
+[memory]
+label=RAM
+command=free -m | awk '/^Mem/ { printf("%2.1f%", 100*$3/$2)}'
+interval=1
+
+# Battery
+[battery]
+label=BAT
+command=acpi | awk ' /Battery 0/ {print $5}'
+interval=10
+
+# Weather
+[weather]
+label=Weather
+command=curl "wttr.in/?format=%t"
+interval=120
+
+# Date/time
+[datetime]
+command=date '+%A, %m/%d %I:%M %p '
+interval=5
