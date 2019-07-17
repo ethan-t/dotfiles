@@ -1,0 +1,36 @@
+[global]
+    frame_width = 1
+    font = Source Code Pro 12
+    markup = yes
+    format = "<b>%a</b>\n%s\n%b"
+    alignment = center
+    bounce_freq = 5
+    word_wrap = yes
+    ignore_newline = no
+    geometry = "300x0-20+20"
+    min_notification_width = 300
+    shrink = yes
+    transparency = 15
+    follow = keyboard
+    history_length = 20
+    separator_height = 0
+    padding = 10
+    horizontal_padding = 10
+    icon_position = off
+    
+
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = opera
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+mod1+space
+
+[urgency_low]
+    timeout = 10
+
+[urgency_normal]
+    timeout = 10
+
+[urgency_critical]
+    timeout = 0
