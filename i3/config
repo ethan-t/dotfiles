@@ -247,9 +247,10 @@ bindsym $mod+9 exec --no-startup-id i3lock-fancy -p
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id wal --theme base16-bright -a 70
+exec --no-startup-id wal --theme base16-eighties -a 70
 exec --no-startup-id xautolock -time 10 -locker i3lock-fancy -p
 exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id dunst-wal
 exec_always --no-startup-id fix_xcursor
 
 ### i3bar
@@ -257,7 +258,7 @@ exec_always --no-startup-id fix_xcursor
 bar {
         i3bar_command i3bar -t
         position bottom
-        separator_symbol /
+        separator_symbol >
         height 32
         tray_output none
         status_command SCRIPT_DIR=/usr/lib/i3blocks i3blocks
