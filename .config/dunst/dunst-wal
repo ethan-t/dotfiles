@@ -2,6 +2,8 @@
 # Launch dunst using colors from .Xresources set by pywal
 # NOTE: This file is actually located in /usr/local/bin
 
+killall dunst
+
 TEXT=$(xgetres foreground)
 BACK=$(xgetres background)
 BORDER=$(xgetres color10)
