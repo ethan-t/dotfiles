@@ -61,14 +61,25 @@ bindsym $mod+Shift+space floating toggle
 
 # Basic program keybinds
 bindsym $mod+Return exec terminal
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "$term_background" -nf "$term_color10" -sb "$term_color10" -sf "$term_background" -h 32
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$term_background" -nf "$term_color10" -sb "$term_color10" -sf "$term_background" -h 32 -b
 bindsym $mod+Shift+q kill
-bindsym $mod+F1 exec spotify
-bindsym $mod+F2 exec opera
-bindsym $mod+F3 exec terminal -e ranger
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+z exec --no-startup-id morc_menu
+
+# F-key bindings
+bindsym $mod+F1 exec spotify
+bindsym $mod+F2 exec opera
+bindsym $mod+F3 exec terminal -e ranger
+bindsym F5 exec light -U 5
+bindsym F6 exec light -A 5
+bindsym F7 exec sp next
+bindsym F10 exec amixer set Master toggle
+bindsym F11 exec amixer -M set Master 5%-
+bindsym F12 exec amixer -M set Master 5%+
+
+# Toggle Spotify music
+bindsym Pause exec sp play
 
 # Change focus with vim bindings
 bindsym $mod+j focus left
@@ -120,12 +131,9 @@ bindsym $mod+Shift+s sticky toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+# Use mod-ctrl-up to cycle through the scratchpad, mod-ctrl-down to send to it
+bindsym $mod+Ctrl+Down move scratchpad
+bindsym $mod+Ctrl+Up scratchpad show
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
