@@ -3,45 +3,40 @@
 separator_block_width=30
 markup=none
 
-# Spotify title
-[music name]
-command=sp title
-interval=5
-
-# Spotify artist
-[music artist]
-command=sp artist
+# Spotify info
+[music]
+command=(pidof spotify && echo `sp title | head -c 80` "-" `sp artist`) | tail -n 1
 interval=5
 
 # Pomodoro timer
 [pomodoro]
-label=POMO
+label=
 # There's often extra whitespace before the time, so remove that
 command=pomo.sh clock | xargs
 interval=1
 
 # ALSA volume
 [volume]
-label=VOL
-command= amixer sget Master -M | awk -F"[][]" '/dB/ { print $2 }'
+label=
+command=amixer sget Master -M | awk -F"[][]" '/dB/ { print $2 }'
 interval=1
 signal=10
 
 # Memory usage
 [memory]
-label=RAM
+label=
 command=free -m | awk '/^Mem/ { printf("%2.1f%", 100*$3/$2)}'
 interval=1
 
 # Battery
 [battery]
-label=BAT
+label=
 command=acpi | awk ' /Battery 0/ {print $5}'
 interval=10
 
 # Weather
 [weather]
-label=Weather
+label=
 command=curl "wttr.in/?format=%t"
 interval=120
 
