@@ -58,11 +58,10 @@ bindsym $mod+Shift+space floating toggle
 
 # Basic program keybinds
 bindsym $mod+Return exec terminal
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "$term_background" -nf "$term_color10" -sb "$term_color10" -sf "$term_background" -h 32 -b
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$term_background" -nf "$term_color10" -sb "$term_color10" -sf "$term_background" -h 32
 bindsym $mod+Shift+q kill
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+z exec --no-startup-id morc_menu
 
 # F-key bindings
 bindsym $mod+F1 exec spotify
@@ -253,7 +252,7 @@ bindsym $mod+9 exec --no-startup-id i3lock-fancy -p
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id wal --theme base16-default
+exec --no-startup-id wal --theme base16-google
 exec --no-startup-id xautolock -time 10 -locker i3lock-fancy -p
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id dunst-wal
@@ -262,7 +261,7 @@ exec_always --no-startup-id fix_xcursor
 ### i3bar
 
 bar {
-        i3bar_command i3bar -t
+        i3bar_command i3bar
         position top
         separator_symbol >
         height 32
