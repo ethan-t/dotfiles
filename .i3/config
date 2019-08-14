@@ -5,9 +5,6 @@
 # Set mod key to super
 set $mod Mod4
 
-# Set transparency for the bar
-set $transparency B3
-
 # Set colors from .Xresources for pywal support
 set_from_resource $term_background background
 set_from_resource $term_foreground foreground
@@ -31,11 +28,11 @@ set_from_resource $term_color15    color15
 ### Basic aesthetic stuff and colors
 
 # Font for window titles and bar
-font xft:Source Code Pro 12
+font xft:Source Code Pro, FontAwesome5Free 12
 
 # Configure border style for new windows
-new_window pixel 1
-new_float pixel 1
+new_window none
+new_float none
 
 # Colors                border         backgr.        text             indic. 
 client.focused          $term_color10  $term_color10  $term_foreground #FDF6E3
@@ -256,7 +253,7 @@ bindsym $mod+9 exec --no-startup-id i3lock-fancy -p
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id wal --theme base16-eighties -a 70
+exec --no-startup-id wal --theme base16-default
 exec --no-startup-id xautolock -time 10 -locker i3lock-fancy -p
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id dunst-wal
@@ -266,14 +263,14 @@ exec_always --no-startup-id fix_xcursor
 
 bar {
         i3bar_command i3bar -t
-        position bottom
+        position top
         separator_symbol >
         height 32
         tray_output none
         status_command SCRIPT_DIR=/usr/lib/i3blocks i3blocks
         colors {
-                background $term_background$transparency
-                separator  $term_foreground$transparency
+                background $term_background
+                separator  $term_foreground
                 statusline $term_foreground
                 #                  border         backgr.       text
                 focused_workspace  $term_color10  $term_color10 $term_foreground
@@ -286,5 +283,5 @@ bar {
 ### i3-gaps
 
 # Set inner/outer gaps
-gaps inner 10
-gaps outer 10
+gaps inner 20
+gaps outer 20
