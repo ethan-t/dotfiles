@@ -19,6 +19,7 @@ alias la="ls -a"
 alias untar="tar -zxcf"
 alias serve="python -m SimpleHTTPServer 8000"
 alias s="sudo"
+alias hulu="qtwebflix hulu.com"
 
 # Set personal functions
 
