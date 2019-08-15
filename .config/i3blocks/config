@@ -37,7 +37,7 @@ interval=10
 # Weather
 [weather]
 label=
-command=curl "wttr.in/?format=%t"
+command=echo `weather-report "79707" | awk '/Temperature:/ {print $2}'`°F
 interval=120
 
 # Date/time
