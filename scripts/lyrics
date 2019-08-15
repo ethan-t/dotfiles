@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+LyricsAPI="https://makeitpersonal.co/lyrics/"
+artist=`sp artist`
+title=`sp title`
+
+curl -s --get "$LyricsAPI" --data-urlencode "artist=$artist" --data-urlencode "title=$title"  
